@@ -3,18 +3,14 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class MathGame {
-    
+
+    public static short num1, num2;
 
     public static void main(String[] args){
        
         Scanner input  = new Scanner(System.in);
         short p1 = 3, p2 = 3;
-        short num1, num2;
         char answer;
-
-        //loop
-        num1 = (short)(Math.random() * 120);
-        num2 = (short)(Math.random() * 120);
 
         while(true){
             System.out.println("Hello and welcome to the two player math game, would you like to play? (y/n)");
@@ -33,10 +29,11 @@ public class MathGame {
 
     if(Character.toUpperCase(answer) == 'Y'){
         do{
-            
-            
+
+            generateRandomNumbers();
             System.out.println("Player 1: what is " + num1 + " + " + num2 + "?");
             int p1Answer = input.nextInt();
+            
             if(p1Answer == num1 + num2){
                 System.out.println("Correct!");
             } else {
@@ -51,6 +48,7 @@ public class MathGame {
 
                 System.out.println( "The lives: Player 1: " + p1 + "/3 Player 2: " + p2 + "/3\n");
 
+            generateRandomNumbers();
             System.out.println("Player 2: what is " + num1 + " + " + num2 + "?");
             int p2Answer = input.nextInt();
             if(p2Answer == num1 + num2){
@@ -75,6 +73,12 @@ public class MathGame {
             System.out.println("Player 2 wins!");
         }
     }
-    
+
+    }
+
+    public static void generateRandomNumbers() {
+
+        num1 = (short)(Math.random() * 120);
+        num2 = (short)(Math.random() * 120);
     }
 }
